@@ -1,14 +1,12 @@
 import Users from './views/Users';
-//import Metrics from './views/Metric';
+import Metric from './views/Metric';
 
 import {createStackNavigator, createAppContainer} from 'react-navigation';
 
 const MainNavigator = createStackNavigator({
   Home: {screen: Users},
-  //Metrics: {screen: Metrics}
-  
-
-  
+  Metric: {screen: Metric}
+    
 });
 
 const app = createAppContainer(MainNavigator);

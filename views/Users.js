@@ -5,7 +5,7 @@ import { ListItem, Input } from 'react-native-elements'
 const axios = require('axios');
 
 type Props = {};
-export default class Metrics extends Component<Props> {
+export default class Users extends Component<Props> {
 
   state = {
     users: [],
@@ -25,8 +25,9 @@ export default class Metrics extends Component<Props> {
   }
 
   handleSearch = text => {
-    const results = this.state.users.filter(element => {
-      return element.name.indexOf(text) > -1
+    
+    const results = this.state.searchResults.filter(element => {
+      return element.app_id.indexOf(text) > -1
     })
     this.setState({
       ...this.state,
@@ -45,13 +46,13 @@ export default class Metrics extends Component<Props> {
 
         
         <ScrollView style={styles.container}>
-        <Text> {this.state.users.length}</Text>
+        <Text> Registros totales: {this.state.users.length}</Text>
           {this.state.searchResults.map((element, index) => (
           <ListItem 
           key={index}
           title={element.app_id} 
           subtitle={element.uuid}        
-          onPress={() => this.props.navigation.navigate('s', element)}
+          onPress={() => this.props.navigation.navigate('Metric', element)}
           />
           ))}
         </ScrollView>
